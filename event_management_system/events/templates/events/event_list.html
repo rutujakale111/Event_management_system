@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event List</title>
+</head>
+<body>
+    <!-- <h1>Event List</h1>
+    <ul>
+        {% for event in events %}
+        <li>{{ event.name }} at {{ event.location }} on {{ event.start_time }}</li>
+        {% endfor %}
+    </ul>   -->
+
+<a href="{% url 'event_create' %}">Create New Event</a>
+<ul>
+    {% for event in events %}
+    <li>
+        {{ event.name }} at {{ event.location }} on {{ event.start_time }}
+        <a href="{% url 'event_update' event.pk %}">Edit</a>
+        <a href="{% url 'event_delete' event.pk %}">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

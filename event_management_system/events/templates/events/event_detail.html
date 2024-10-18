@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Detail</title>
+</head>
+<body>
+    <h1>{{ event.name }}</h1>
+    <p>Location: {{ event.location }}</p>
+    <p>Starts: {{ event.start_time }}</p>
+    <p>Ends: {{ event.end_time }}</p>
+    
+    <h2>Attendees:</h2>
+    <ul>
+        {% for invitation in event.invitations.all %}
+        <li>{{ invitation.attendee.name }} - RSVP: {{ invitation.rsvp_status }}</li>
+        {% endfor %}
+    </ul>  
+</body>
+</html>
