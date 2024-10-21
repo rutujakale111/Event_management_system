@@ -1,9 +1,11 @@
 from django.db import models
 from django.db import models
+from django.utils import timezone
 from django.core.exceptions import ValidationError
 
 class Event(models.Model):
     name = models.CharField(max_length=255)
+    date = models.DateTimeField(default=timezone.now)
     location = models.CharField(max_length=255)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()

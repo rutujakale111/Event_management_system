@@ -4,4 +4,7 @@ from .models import Event
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ['name', 'location', 'start_time', 'end_time']
+        fields = ['name', 'date', 'location', 'start_time', 'end_time']
+        widgets = {
+            'date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),  
+        }
